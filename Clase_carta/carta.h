@@ -1,38 +1,33 @@
-
 #include <iostream>
 #include "./colores.h"
 #include <string>
 
 using namespace std;
 
-
-class carta{
-    
+class Carta{
     
     public : 
-    
-    string paleta[4]= {BG_RED, BG_GREEN, BG_BLUE, BG_YELLOW};
-    int numero;
-    int color;
-    carta();
-      carta(int color, int numero);
-    void mostrar();
+        string paleta[4]= {BG_RED, BG_GREEN, BG_BLUE, BG_YELLOW};
+        int numero;//poder de la carta
+        int color;
+        Carta();
+        Carta(int color, int numero);
+        void mostrar();
 };
 
-carta :: carta(){
+Carta::Carta(){
     
-    numero=0;
-    color=0;
-    
+    color = 0;
+    numero = 0;
     
 }
 
-carta :: carta (int color, int numero){
-    this->color=color;
-    this->numero= numero;
+Carta::Carta (int color, int numero){
+    this->color = color;
+    this->numero = numero;
 }
 
 
-void carta::   mostrar(){
+void Carta::mostrar(){
     cout << paleta[color] << " " << numero << " \x1B[0m"; 
 }
