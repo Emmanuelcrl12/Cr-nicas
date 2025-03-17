@@ -17,8 +17,14 @@ int main(){
     Mano mano;
     
 
-    mazo1.repartir();
-    //mano.mostrar();
+  int jugadores;
+    cout << "Ingrese el número de jugadores: ";
+    cin >> jugadores;
+
+    vector<Mano> manos = mazo1.repartir(jugadores);
+    
+
+   mano.mostrarManos(manos); 
     
     return 0;
 }
