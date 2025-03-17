@@ -4,7 +4,9 @@
 
 #include <iostream>
 #include "./Carta.h"
+#include "./Mano.h" 
 #include <cstdlib> 
+#include <vector>
 #include <ctime>  
 
 
@@ -18,8 +20,8 @@ class Mazo{
         Mazo();
         void barajar();
         void mostrar();
-        Carta repartir();
      
+        vector<Mano> repartir(int jugadores);
  };
 
 Mazo::Mazo(){
@@ -67,28 +69,20 @@ void Mazo::barajar(){
     }
 }
 
-#include "./Mano.h" 
 
-Carta Mazo::repartir() {
-    Mano mano;
 
-    int jugadores;
-    cout<<"\nIngrese el numero de jugadores: ";
-    cin>>jugadores;
-
-    int cartasJugador;
-    cartasJugador = 36/jugadores;
-
-    for(int i = 0; i < jugadores; i++){
-        cout<<"Jugador "<<i+1<<endl;
-        for(int j = 0; j < cartasJugador; j++){
-            mano.cartasM.push_back(cartas[j]);
-            cartas[j].mostrar();
-            cout<<" ";
+vector<Mano> Mazo::  repartir(int jugadores){
+    
+    int ncartas_jugador=36/jugadores;
+    vector<Mano> manos(jugadores);
+    int indice = 0;
+        for (int j = 0; j < ncartas_jugador; j++) {
+            for (int i = 0; i < jugadores; i++) {
+                manos[i].agregarCarta(cartas[indice]);
+                indice++;
+            }
         }
-        cout<<" "<<endl;
-    }
-    return mano.cartasM[0];
+        return manos;
 }
 
 #endif
