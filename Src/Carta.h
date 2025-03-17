@@ -1,3 +1,6 @@
+#ifndef CARTA_H
+#define CARTA_H
+
 #include <iostream>
 #include "./colores.h"
 #include <string>
@@ -31,3 +34,5 @@ Carta::Carta (int color, int numero){
 void Carta::mostrar(){
     cout << paleta[color] << " " << numero << " "<< RESET; 
 }
+
+#endif

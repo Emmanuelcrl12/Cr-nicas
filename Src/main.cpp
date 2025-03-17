@@ -1,5 +1,7 @@
 #include <iostream>
 #include "./Mazo.h"
+#include "./Mano.h"
+
 
 using namespace std;
 int main(){
@@ -11,5 +13,12 @@ int main(){
     mazo1.barajar();
     cout<<" "<<endl;
     mazo1.mostrar();
+
+    Mano mano;
+    
+
+    mazo1.repartir();
+    //mano.mostrar();
+    
     return 0;
 }

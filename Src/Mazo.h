@@ -1,28 +1,35 @@
+#ifndef MAZO_H
+
+#define MAZO_H
+
 #include <iostream>
 #include "./Carta.h"
 #include <cstdlib> 
 #include <ctime>  
- 
- using namespace std;
 
- class Mazo{
 
- public:
-     int ncartas;
-     Carta cartas[36];
-     Mazo();
-     void barajar();
-     void mostrar();
-     Carta repartir();
+using namespace std;
+
+class Mazo{
+
+    public:
+        //int ncartas;
+        Carta cartas[36];
+        Mazo();
+        void barajar();
+        void mostrar();
+        Carta repartir();
+     
  };
 
 Mazo::Mazo(){
     
-    int indice=0;
-    for(int i=0;  i <4; i++){
-        for(int j=0; j<9; j++){
+    int indice = 0;
+    for(int i = 0;  i <4; i++){
+        
+        for(int j = 0; j<9; j++){
             
-            indice= (9*i)+j;
+            indice = (9*i)+j;
             cartas[indice].numero = j+1;
             cartas[indice].color = i;
         }
@@ -47,8 +54,7 @@ void Mazo::mostrar(){
 
 void Mazo::barajar(){
        
-    cout<<endl<<"Se barajaron las cartas";
-       
+    cout<<"\nSe barajaron las cartas"<<endl;   
     Carta aux;
        
     for (int i = 0; i < 50; i++) {
@@ -61,9 +67,28 @@ void Mazo::barajar(){
     }
 }
 
-Carta Mazo::repartir(){
-    
-    Carta carta = cartas[ncartas];
-    ncartas++;
-    return carta;
+#include "./Mano.h" 
+
+Carta Mazo::repartir() {
+    Mano mano;
+
+    int jugadores;
+    cout<<"\nIngrese el numero de jugadores: ";
+    cin>>jugadores;
+
+    int cartasJugador;
+    cartasJugador = 36/jugadores;
+
+    for(int i = 0; i < jugadores; i++){
+        cout<<"Jugador "<<i+1<<endl;
+        for(int j = 0; j < cartasJugador; j++){
+            mano.cartasM.push_back(cartas[j]);
+            cartas[j].mostrar();
+            cout<<" ";
+        }
+        cout<<" "<<endl;
+    }
+    return mano.cartasM[0];
 }
+
+#endif
