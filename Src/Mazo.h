@@ -5,8 +5,8 @@
 #include <iostream>
 #include "./Carta.h"
 #include "./Mano.h" 
-#include <cstdlib> 
 #include <vector>
+#include <cstdlib> 
 #include <ctime>  
 
 
@@ -20,10 +20,11 @@ class Mazo{
         Mazo();
         void barajar();
         void mostrar();
-     
         vector<Mano> repartir(int jugadores);
- };
 
+     
+     
+ };
 Mazo::Mazo(){
     
     int indice = 0;
@@ -70,19 +71,26 @@ void Mazo::barajar(){
 }
 
 
-
 vector<Mano> Mazo::  repartir(int jugadores){
     
     int ncartas_jugador=36/jugadores;
     vector<Mano> manos(jugadores);
-    int indice = 0;
-        for (int j = 0; j < ncartas_jugador; j++) {
-            for (int i = 0; i < jugadores; i++) {
-                manos[i].agregarCarta(cartas[indice]);
-                indice++;
+    int indice = 35;
+        for (int j = 0; j<jugadores ; j++) {
+            for (int i =0; i<ncartas_jugador; i++) {
+                manos[j].agregarCarta(cartas[indice]);
+                indice--;
             }
         }
         return manos;
+    
+    
 }
+
+
+
+
+
+
 
 #endif
