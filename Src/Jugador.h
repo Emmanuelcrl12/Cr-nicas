@@ -14,5 +14,5 @@ class Jugador{
 
 Jugador::Jugador(){
     this->nombre = nombre;
-    
+    this->mano = mano;
 }
