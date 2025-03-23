@@ -16,9 +16,11 @@ class Mano{
         vector<Carta> cartasM;
         Mano();
         void mostrar();
-        Carta lanzar();
+        Carta lanzar(vector<vector<Mano>>& manos);
         void agregarCarta(Carta c);
-        void mostrarManos(vector<Mano>& manos);
+        void mostrarManos(vector<vector<Mano>>& manos);
+        void mostrarMano(vector<vector<Mano>>& manos);
+};
         
 
 };
