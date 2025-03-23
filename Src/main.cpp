@@ -1,7 +1,7 @@
 #include <iostream>
 #include "./Mazo.h"
 #include "./Mano.h"
-
+#include "./Tablero.h"
 
 using namespace std;
 int main(){
@@ -15,16 +15,20 @@ int main(){
     mazo1.mostrar();
 
     Mano mano;
+    Tablero tablero;
     
-
     int jugadores;
     cout << "\nIngrese el n�mero de jugadores: ";
     cin >> jugadores;
+    
+    
 
-    vector<Mano> manos = mazo1.repartir(jugadores);
+    vector<vector<Mano>> manos = mazo1.repartir(jugadores);
     
 
     mano.mostrarManos(manos);
+    tablero.mostrarTablero();
+    mano.lanzar(manos);
     
     return 0;
 }
