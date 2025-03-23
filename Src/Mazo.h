@@ -20,7 +20,7 @@ class Mazo{
         Mazo();
         void barajar();
         void mostrar();
-        vector<Mano> repartir(int jugadores);
+        vector<vector<Mano>> repartir(int jugadores);
 
      
      
@@ -71,14 +71,14 @@ void Mazo::barajar(){
 }
 
 
-vector<Mano> Mazo::  repartir(int jugadores){
+vector<vector<Mano>> Mazo:: repartir(int jugadores){
     
     int ncartas_jugador=36/jugadores;
-    vector<Mano> manos(jugadores);
+vector<vector<Mano>> manos(jugadores, vector<Mano>(1));
     int indice = 35;
         for (int j = 0; j<jugadores ; j++) {
             for (int i =0; i<ncartas_jugador; i++) {
-                manos[j].agregarCarta(cartas[indice]);
+                manos[j][0].agregarCarta(cartas[indice]);
                 indice--;
             }
         }
