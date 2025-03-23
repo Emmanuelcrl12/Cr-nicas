@@ -25,18 +25,19 @@ class Mano{
 
 Mano::Mano(){
 
-   void Mano:: agregarCarta(Carta c){
-    
-    
-    cartasM.push_back(c);
-}
     
 }
+
+void Mano::agregarCarta(Carta c){
+        cartasM.push_back(c);
+}
+
+
 void  Mano ::mostrarManos(vector<Mano>& manos) {
     for (int i = 0; i < manos.size(); i++) {  
-        cout << "Cartas del Jugador " << i + 1 << ":" << endl;  
+        cout << "\nCartas del Jugador " << i + 1 << ":" << endl;  
         manos[i].mostrar();
-        cout << endl;
+        
     }
 }
 
@@ -44,7 +45,7 @@ void Mano::mostrar(){
     
     for(int i=0; i<cartasM.size(); i++){
         cartasM[i].mostrar();
-        cout<<" "<<endl;
+        cout<<" ";
     }
 }
 
