@@ -23,22 +23,11 @@ class Mano{
 
 };
 
-Mano::Mano(){
-
-    
+Mano::Mano(){  
 }
 
 void Mano::agregarCarta(Carta c){
         cartasM.push_back(c);
-}
-
-
-void  Mano ::mostrarManos(vector<Mano>& manos) {
-    for (int i = 0; i < manos.size(); i++) {  
-        cout << "\nCartas del Jugador " << i + 1 << ":" << endl;  
-        manos[i].mostrar();
-        
-    }
 }
 
 void Mano::mostrar(){
@@ -49,15 +38,29 @@ void Mano::mostrar(){
     }
 }
 
+void  Mano ::mostrarManos(vector<vector<Mano>>& manos) {
+    for(int i=0; i<manos.size(); i++){
+        cout << "Cartas del Jugador " << i + 1 << ":" << endl;  
+        manos[i][0].mostrar();
+        cout << endl;
+    }
+}
+
+void Mano:: mostrarMano(vector<vector<Mano>>& manos){
+int n=1;
+    cout<<"La mano del jugador "<<n<<":"<<endl;
+    manos[n-1][0].mostrar();
+    cout << endl;
+}
+
 Carta Mano::lanzar(){
-    Mano mano;
-    mano.mostrar();
-    
-    int carta;
-    cout<<"Ingrese la carta que desea lanzar: ";
-    cin>>carta;
-    
-    return cartasM[carta];
+Carta Mano::lanzar(vector<vector<Mano>>& manos){
+   
+   Carta cartaSeleccionada = manos[0][0].cartasM[6];
+cartaSeleccionada.mostrar();
+manos
+
+return cartaSeleccionada;
 }
 
 #endif
