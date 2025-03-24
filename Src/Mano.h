@@ -5,7 +5,7 @@
 #include <iostream>
 #include "./Carta.h"
 #include "./Mazo.h"
-
+#include "./Tablero.h"
 #include <Vector>
 
 using namespace std;
@@ -15,11 +15,12 @@ class Mano{
         vector<Carta> cartasM;
         Mano();
         void mostrar();
-        Carta lanzar(vector<vector<Mano>>& manos);
+        Carta lanzar(vector<vector<Mano>>& manos, int nJugador);
         void agregarCarta(Carta c);
         void mostrarManos(vector<vector<Mano>>& manos);
         void mostrarMano(vector<vector<Mano>>& manos, int nJugador);
 };
+
 
 
 Mano::Mano(){  
@@ -48,23 +49,29 @@ void  Mano::mostrarManos(vector<vector<Mano>>& manos) {
 
 void Mano::mostrarMano(vector<vector<Mano>>& manos, int nJugador){
     
-    cout<<"La mano del jugador "<<nJugador+1<<":"<<endl;
+    cout<<"\nLa mano del jugador "<<nJugador+1<<":"<<endl;
     manos[nJugador][0].mostrar();
     cout << endl;
 }
 
+Tablero tablero;
 
-Carta Mano::lanzar(vector<vector<Mano>>& manos){
+Carta Mano::lanzar(vector<vector<Mano>>& manos, int nJugador){
    
     int opcion;
-    mostrarMano(manos, 0);
+    mostrarMano(manos, nJugador);
     cout << "\nSeleccione una carta para lanzar: ";
     cin >> opcion;
-    Carta cartaSeleccionada = manos[0][0].cartasM[opcion-1];
+    Carta cartaSeleccionada = manos[nJugador][0].cartasM[opcion-1];
+    cout<< "la carta tirada es: \n";
     cartaSeleccionada.mostrar();
-
+    cout << endl;
+    tablero.cartasTablero.push_back(cartaSeleccionada);//no agrega la carta al tablero, pero no causa error
+    //cartasM.erase(cartasM.begin() + opcion-1); // no elimina la carta de la mano y causa error
 
     return cartaSeleccionada;
 }
+
+
 
 #endif
