@@ -28,7 +28,12 @@ int main(){
 
     mano.mostrarManos(manos);
     tablero.mostrarTablero();
-    mano.lanzar(manos);
     
+    for (int i = 0; i < jugadores; i++){
+        mano.lanzar(manos, i);
+    }
+    //mano.lanzar(manos);
+    tablero.mostrarTablero();
+
     return 0;
 }
