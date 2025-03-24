@@ -19,6 +19,7 @@ class Mano{
         void agregarCarta(Carta c);
         void mostrarManos(vector<vector<Mano>>& manos);
         void mostrarMano(vector<vector<Mano>>& manos, int nJugador);
+        
 };
 
 
@@ -29,6 +30,7 @@ Mano::Mano(){
 void Mano::agregarCarta(Carta c){
         cartasM.push_back(c);
 }
+
 
 void Mano::mostrar(){
     
@@ -54,7 +56,7 @@ void Mano::mostrarMano(vector<vector<Mano>>& manos, int nJugador){
     cout << endl;
 }
 
-Tablero tablero;
+
 
 Carta Mano::lanzar(vector<vector<Mano>>& manos, int nJugador){
    
@@ -66,8 +68,6 @@ Carta Mano::lanzar(vector<vector<Mano>>& manos, int nJugador){
     cout<< "la carta tirada es: \n";
     cartaSeleccionada.mostrar();
     cout << endl;
-    tablero.cartasTablero.push_back(cartaSeleccionada);//no agrega la carta al tablero, pero no causa error
-    //cartasM.erase(cartasM.begin() + opcion-1); // no elimina la carta de la mano y causa error
 
     return cartaSeleccionada;
 }
