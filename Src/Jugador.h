@@ -1,12 +1,12 @@
 #include <iostream>
-#include "./Mano.h"
+//#include "./Mano.h"
 
 using namespace std;
 class Jugador{
 
     public:
         string nombre;
-        Mano mano;
+        //Mano mano;
         Jugador();
 
 
@@ -14,5 +14,5 @@ class Jugador{
 
 Jugador::Jugador(){
     this->nombre = nombre;
-    
+    //this->mano = mano;
 }

@@ -19,7 +19,7 @@ class Carta{
 };
 
 Carta::Carta(){
-    
+
     color = 0;
     numero = 0;
     
@@ -30,9 +30,9 @@ Carta::Carta (int color, int numero){
     this->numero = numero;
 }
 
-
 void Carta::mostrar(){
-    cout << paleta[color] << " " << numero << " "<< RESET; 
+    
+    cout << paleta[color] << " " << numero << " "<< RESET;     
 }
 
 #endif
