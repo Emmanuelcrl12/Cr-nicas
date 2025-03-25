@@ -5,8 +5,9 @@
 #include <iostream>
 #include "./Carta.h"
 #include "./Mazo.h"
-#include "./Tablero.h"
-#include <Vector>
+
+#include <vector>
+
 
 using namespace std;
 class Mano{
@@ -15,10 +16,9 @@ class Mano{
         vector<Carta> cartasM;
         Mano();
         void mostrar();
-        Carta lanzar(vector<vector<Mano>>& manos, int nJugador);
         void agregarCarta(Carta c);
-        void mostrarManos(vector<vector<Mano>>& manos);
-        void mostrarMano(vector<vector<Mano>>& manos, int nJugador);
+        Carta lanzar(vector<Mano>& manos, int nJugador);
+        void mostrarMano(vector<Mano>& manos, int nJugador);
         
 };
 
@@ -41,35 +41,30 @@ void Mano::mostrar(){
     }
 }
 
-void  Mano::mostrarManos(vector<vector<Mano>>& manos) {
-    for(int i=0; i<manos.size(); i++){
-        cout << "\nCartas del Jugador " << i + 1 << ":" << endl;  
-        manos[i][0].mostrar();
-        cout << endl;
-    }
-}
-
-void Mano::mostrarMano(vector<vector<Mano>>& manos, int nJugador){
+void Mano::mostrarMano(vector<Mano>& manos, int nJugador){
     
     cout<<"\nLa mano del jugador "<<nJugador+1<<":"<<endl;
-    manos[nJugador][0].mostrar();
+    manos[nJugador].mostrar();
     cout << endl;
 }
 
-
-
-Carta Mano::lanzar(vector<vector<Mano>>& manos, int nJugador){
-   
+Carta Mano::lanzar(vector<Mano>& manos, int nJugador) {
     int opcion;
-    mostrarMano(manos, nJugador);
+    mostrarMano(manos,nJugador);
     cout << "\nSeleccione una carta para lanzar: ";
     cin >> opcion;
-    Carta cartaSeleccionada = manos[nJugador][0].cartasM[opcion-1];
-    cout<< "la carta tirada es: \n";
-    cartaSeleccionada.mostrar();
+
+    // Guardar la carta seleccionada
+    Carta cartaLanzada = cartasM[opcion - 1];
+
+    cout << "La carta tirada es:\n";
+    cartaLanzada.mostrar();
     cout << endl;
 
-    return cartaSeleccionada;
+    // Eliminar la carta de la mano
+    cartasM.erase(cartasM.begin() + (opcion - 1));
+
+    return cartaLanzada;  // Retornar la carta seleccionada
 }
 
 
