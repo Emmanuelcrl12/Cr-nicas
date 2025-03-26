@@ -24,14 +24,28 @@ int main(){
     
 
     vector<Mano> manos = mazo1.repartir(jugadores);
-
+while(true){
     
     tablero.jugarRonda(manos, tablero, jugadores);
 
     int ganador = tablero.compararGanador();
     tablero.mandarGanador(manos, ganador);
+         int jugadoresConCartas = 0;
+         int ultimoJugadorConCartas = -1; 
+        for (int i = 0; i < jugadores; i++) {
+            if (manos[i].cartasM.size() > 0) {
+                 jugadoresConCartas++;
+                 ultimoJugadorConCartas = i; 
+                                    
+                jugadoresConCartas++;
+            
+        }}
 
-    
+        if (jugadoresConCartas == 1) {
+            cout << "¡El jugador " << ultimoJugadorConCartas + 1 << " ha ganado el juego!" << endl;
+            break;
+        }
 
+}
     return 0;
 }
