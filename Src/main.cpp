@@ -50,7 +50,7 @@ int main(){
                 system("cls");
                 cout << "¡El jugador " << i + 1 << " ha ganado el juego con todas las cartas!" << endl;
                 system("pause");
-                continue;
+                return 0;
             }
         }
 
