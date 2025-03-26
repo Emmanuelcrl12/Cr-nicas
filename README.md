@@ -18,3 +18,6 @@ el jugador que obtenga todas las cartas gana la ronda.
 para jugar el juego se debe descargar el codigo fuente y compilarlo.
 
 para seguidamente ejecutar el .exe
+
+## lo que se espera por consola
+![image](https://github.com/user-attachments/assets/6efb8a00-51e7-4981-abba-cefc1638d772)
