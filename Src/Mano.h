@@ -50,7 +50,6 @@ void Mano::mostrarMano(vector<Mano>& manos, int nJugador){
 Carta Mano::lanzar(vector<Mano>& manos, int nJugador) {
     
     int opcion;
-    system("cls");
     mostrarMano(manos,nJugador);
     cout << "\nSeleccione una carta para lanzar: ";
     cin >> opcion;

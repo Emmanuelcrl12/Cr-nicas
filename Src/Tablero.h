@@ -31,7 +31,7 @@ void Tablero::agregarCarta( Carta c) {
 	cartasTablero.push_back(c);
 }
 void Tablero::mostrar() {
-	system("cls");
+	
 	for(int i=0; i<cartasTablero.size(); i++) {
 		cartasTablero[i].mostrar();
 		cout<<" ";
@@ -43,8 +43,11 @@ void Tablero::mostrar() {
 void Tablero::jugarRonda(vector <Mano>& manos, Tablero& tablero, int jugadores) {
 	
 	for (int i = 0; i < jugadores; i++) {
+		system("cls");
+	    cout << "Jugdor que juega: " << i + 1 << endl;
+		system("pause");
+		if (manos[i].cartasM.empty()) continue;
 		
-	        if (manos[i].cartasM.empty()) continue;
 		if (i>0 ){
 			
 			cout << "----CARTAS EN JUEGO----\n";
@@ -59,8 +62,8 @@ void Tablero::jugarRonda(vector <Mano>& manos, Tablero& tablero, int jugadores) 
 		// agregar la carta al tablero manualmentee
 		tablero.agregarCarta(cartaJugada);
 		
-		}
-
+	}
+	
 }
 
 int  Tablero::compararGanador() {
