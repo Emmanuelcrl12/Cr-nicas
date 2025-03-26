@@ -20,7 +20,7 @@ class Mazo{
         Mazo();
         void barajar();
         void mostrar();
-        vector<vector<Mano>> repartir(int jugadores);
+        vector<Mano> repartir(int jugadores);
 
      
      
@@ -71,7 +71,7 @@ void Mazo::barajar(){
 }
 
 
-vector<vector<Mano>> Mazo::repartir(int jugadores){
+vector<Mano> Mazo::repartir(int jugadores){
     
     int ncartas_jugador=36/jugadores;
     vector<vector<Mano>> manos(jugadores, vector<Mano>(1));
