@@ -44,7 +44,7 @@ void Tablero::jugarRonda(vector <Mano>& manos, Tablero& tablero, int jugadores) 
 	
 	for (int i = 0; i < jugadores; i++) {
 		
-		
+	        if (manos[i].cartasM.empty()) continue;
 		if (i>0 ){
 			
 			cout << "----CARTAS EN JUEGO----\n";
