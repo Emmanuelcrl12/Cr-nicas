@@ -16,8 +16,7 @@ public:
 	vector<Carta> cartasTablero;
 	Tablero();
 	void agregarCarta(Carta c);
-	void jugarRonda();
-	void mostrarTablero(vector<Tablero>& cartaSeleccionada);
+	void jugarRonda(vector <Mano>& manos, Tablero& tablero, int jugadores);
 	void mostrar();
 	int compararGanador();
 	void mandarGanador(vector<Mano>& manos, int jugadorGanador);
@@ -32,9 +31,8 @@ void Tablero::agregarCarta( Carta c) {
 	cartasTablero.push_back(c);
 }
 void Tablero::mostrar() {
-
+	system("cls");
 	for(int i=0; i<cartasTablero.size(); i++) {
-		cout<<i+1<<")";
 		cartasTablero[i].mostrar();
 		cout<<" ";
 	}
@@ -42,21 +40,26 @@ void Tablero::mostrar() {
 
 
 
-void Tablero ::mostrarTablero(vector<Tablero>& cartaSeleccionada) {
-	cout << "-----CARTAS EN JUEGO-------\n ";
-	for (int i = 0; i < cartasTablero.size(); i++) {
-		cartaSeleccionada[i].mostrar();
-		cout << "existo ";
-
-	}
-	cout << "\n";
-}
-
-
-
-
-void Tablero::jugarRonda() {
-
+void Tablero::jugarRonda(vector <Mano>& manos, Tablero& tablero, int jugadores) {
+	
+	for (int i = 0; i < jugadores; i++) {
+		
+		
+		if (i>0 ){
+			
+			cout << "----CARTAS EN JUEGO----\n";
+			tablero.mostrar();
+		}
+		
+		cout << "\nTurno del jugador " << i + 1 << ":\n";
+		
+		// el jugador selecciona y lanza una carta
+		Carta cartaJugada = manos[i].lanzar(manos, i);
+	
+		// agregar la carta al tablero manualmentee
+		tablero.agregarCarta(cartaJugada);
+		
+		}
 
 }
 
