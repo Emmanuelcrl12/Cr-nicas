@@ -9,11 +9,13 @@ int main(){
     srand(time(0));
     Mazo mazo1;
     mazo1.mostrar();
+    system("cls");
 
+    
     mazo1.barajar();
     cout<<" "<<endl;
-    mazo1.mostrar();
-
+    //mazo1.mostrar();
+    system("pause");
     Mano mano;
     Tablero tablero;
     
@@ -24,28 +26,33 @@ int main(){
     
 
     vector<Mano> manos = mazo1.repartir(jugadores);
-while(true){
+    while(true){
     
-    tablero.jugarRonda(manos, tablero, jugadores);
+        tablero.jugarRonda(manos, tablero, jugadores);
 
-    int ganador = tablero.compararGanador();
-    tablero.mandarGanador(manos, ganador);
-         int jugadoresConCartas = 0;
-         int ultimoJugadorConCartas = -1; 
+        int ganador = tablero.compararGanador();
+        tablero.mandarGanador(manos, ganador);
+            int jugadoresConCartas = 0;
+            int ultimoJugadorConCartas = -1; 
+            for (int i = 0; i < jugadores; i++) {
+                if (manos[i].cartasM.size() > 0) {
+                    jugadoresConCartas++;
+                    ultimoJugadorConCartas = i; 
+                } 
+            }
+
+
+        
         for (int i = 0; i < jugadores; i++) {
-            if (manos[i].cartasM.size() > 0) {
-                 jugadoresConCartas++;
-                 ultimoJugadorConCartas = i; 
-                                    
-                jugadoresConCartas++;
-            
-        }}
-
-        if (jugadoresConCartas == 1) {
-            cout << "¡El jugador " << ultimoJugadorConCartas + 1 << " ha ganado el juego!" << endl;
-            break;
+            if (manos[i].cartasM.size() == 36) { 
+                system("cls");
+                cout << "¡El jugador " << i + 1 << " ha ganado el juego con todas las cartas!" << endl;
+                system("pause");
+                return 0;
+            }
         }
 
-}
+
+    }
     return 0;
 }
