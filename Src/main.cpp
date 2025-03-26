@@ -18,9 +18,11 @@ int main(){
     system("pause");
     Mano mano;
     Tablero tablero;
+
     
     int jugadores;
     cout << "\nIngrese el n�mero de jugadores: ";
+    cout << "Recuerde ingresar un valor par o 3, o 9\n ";
     cin >> jugadores;
     
     
@@ -48,7 +50,7 @@ int main(){
                 system("cls");
                 cout << "¡El jugador " << i + 1 << " ha ganado el juego con todas las cartas!" << endl;
                 system("pause");
-                return 0;
+                continue;
             }
         }
 

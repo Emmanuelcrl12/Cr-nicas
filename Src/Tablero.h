@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include "./Jugador.h"
 #include "./Mano.h"
 
 class Mano;
@@ -12,7 +11,7 @@ using namespace std;
 class Tablero {
 
 public:
-	vector<Jugador> jugadores;
+
 	vector<Carta> cartasTablero;
 	Tablero();
 	void agregarCarta(Carta c);

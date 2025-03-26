@@ -73,6 +73,8 @@ void Mazo::barajar(){
 
 vector<Mano> Mazo::repartir(int jugadores){
     
+
+    if(36%jugadores==0){
     int ncartas_jugador=36/jugadores;
     vector<Mano> manos(jugadores);
     int indice = 35;
@@ -83,8 +85,12 @@ vector<Mano> Mazo::repartir(int jugadores){
                 indice--;
             }
         }
-        return manos;
-    
+        return manos;}
+    else{
+
+        cout<<"La cantidad de jugadores ingresado no es la correcta \n";
+        system("pause");
+    }
     
 }
 
