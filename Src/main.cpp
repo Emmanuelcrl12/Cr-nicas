@@ -23,25 +23,15 @@ int main(){
     
     
 
-    vector<vector<Mano>> manos = mazo1.repartir(jugadores);
-   Tablero tablero;
+    vector<Mano> manos = mazo1.repartir(jugadores);
 
-for (int i = 0; i < jugadores; i++) {
-    cout << "Turno del jugador " << i + 1 << ":\n";
     
-    // El jugador selecciona y lanza una carta
-    Carta cartaJugada = manos[i].lanzar(manos, i);
+    tablero.jugarRonda(manos, tablero, jugadores);
 
-    // Agregar la carta al tablero manualmente
-    tablero.agregarCarta(cartaJugada);
-}
+    int ganador = tablero.compararGanador();
+    tablero.mandarGanador(manos, ganador);
 
-cout << "\nEstado actual del tablero:\n";
-tablero.mostrar();
-cout << endl;
-
-int ganador = tablero.compararGanador();
-tablero.mandarGanador(manos, ganador);
+    
 
     return 0;
 }

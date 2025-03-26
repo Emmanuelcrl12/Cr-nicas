@@ -43,13 +43,14 @@ void Mano::mostrar(){
 
 void Mano::mostrarMano(vector<Mano>& manos, int nJugador){
     
-    cout<<"\nLa mano del jugador "<<nJugador+1<<":"<<endl;
     manos[nJugador].mostrar();
     cout << endl;
 }
 
 Carta Mano::lanzar(vector<Mano>& manos, int nJugador) {
+    
     int opcion;
+    system("cls");
     mostrarMano(manos,nJugador);
     cout << "\nSeleccione una carta para lanzar: ";
     cin >> opcion;
@@ -57,8 +58,6 @@ Carta Mano::lanzar(vector<Mano>& manos, int nJugador) {
     // Guardar la carta seleccionada
     Carta cartaLanzada = cartasM[opcion - 1];
 
-    cout << "La carta tirada es:\n";
-    cartaLanzada.mostrar();
     cout << endl;
 
     // Eliminar la carta de la mano

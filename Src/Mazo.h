@@ -74,12 +74,12 @@ void Mazo::barajar(){
 vector<Mano> Mazo::repartir(int jugadores){
     
     int ncartas_jugador=36/jugadores;
-    vector<vector<Mano>> manos(jugadores, vector<Mano>(1));
+    vector<Mano> manos(jugadores);
     int indice = 35;
         for (int j = 0; j<jugadores ; j++) {
             for (int i =0; i<ncartas_jugador; i++) {
                 
-                manos[j][0].agregarCarta(cartas[indice]);
+                manos[j].agregarCarta(cartas[indice]);
                 indice--;
             }
         }
