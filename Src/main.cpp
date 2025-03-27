@@ -34,17 +34,7 @@ int main(){
 
         int ganador = tablero.compararGanador();
         tablero.mandarGanador(manos, ganador);
-            int jugadoresConCartas = 0;
-            int ultimoJugadorConCartas = -1; 
-            for (int i = 0; i < jugadores; i++) {
-                if (manos[i].cartasM.size() > 0) {
-                    jugadoresConCartas++;
-                    ultimoJugadorConCartas = i; 
-                } 
-            }
 
-
-        
         for (int i = 0; i < jugadores; i++) {
             if (manos[i].cartasM.size() == 36) { 
                 system("cls");
