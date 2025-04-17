@@ -13,6 +13,7 @@ using namespace std;
 class Mano{
     
     public:
+        int puntaje;
         vector<Carta> cartasM;
         Mano();
         void mostrar();
