@@ -3,7 +3,10 @@
 
 #include <iostream>
 #include <vector>
+#include "./Jugador.h"
 #include "./Mano.h"
+#include <cstdlib>
+#include<string>
 
 class Mano;
 using namespace std;
@@ -11,14 +14,14 @@ using namespace std;
 class Tablero {
 
 public:
-
+	vector<Jugador> jugadores;
 	vector<Carta> cartasTablero;
 	Tablero();
 	void agregarCarta(Carta c);
 	void jugarRonda(vector <Mano>& manos, Tablero& tablero, int jugadores);
 	void mostrar();
 	int compararGanador();
-	void mandarGanador(vector<Mano>& manos, int jugadorGanador);
+	void vaciar(int &indiceGanador,vector <Mano>& manos);
 
 
 };
@@ -30,7 +33,6 @@ void Tablero::agregarCarta( Carta c) {
 	cartasTablero.push_back(c);
 }
 void Tablero::mostrar() {
-	
 	for(int i=0; i<cartasTablero.size(); i++) {
 		cartasTablero[i].mostrar();
 		cout<<" ";
@@ -42,27 +44,19 @@ void Tablero::mostrar() {
 void Tablero::jugarRonda(vector <Mano>& manos, Tablero& tablero, int jugadores) {
 	
 	for (int i = 0; i < jugadores; i++) {
-		system("cls");
-	    cout << "Jugdor que juega: " << i + 1 << endl;
-		system("pause");
-		if (manos[i].cartasM.empty()) continue;
+	    if (manos[i].cartasM.empty()) continue; // Si el jugador no tiene cartas, se salta su turno
 		
 		if (i>0 ){
-			
-			cout << "----CARTAS EN JUEGO----\n";
-			tablero.mostrar();
+		   cout << "----CARTAS EN JUEGO----\n";
+		   tablero.mostrar();
 		}
-		
+	        cout<<"Puntaje:"<<manos[i].puntaje;
 		cout << "\nTurno del jugador " << i + 1 << ":\n";
-		
-		// el jugador selecciona y lanza una carta
 		Carta cartaJugada = manos[i].lanzar(manos, i);
-	
-		// agregar la carta al tablero manualmentee
 		tablero.agregarCarta(cartaJugada);
-		
-	}
-	
+		system("clear");
+		}
+
 }
 
 int  Tablero::compararGanador() {
@@ -80,22 +74,14 @@ int  Tablero::compararGanador() {
 			}
 		}
 
-
 	}
 	cout << "El jugador " << indiceGanador + 1 << " ganC3 la ronda.\n";
 	return indiceGanador;
 }
-void Tablero::mandarGanador(vector<Mano>& manos, int jugadorGanador) {
-	cout << "El jugador " << jugadorGanador + 1 << " recibe las cartas.\n";
-
-	for (int i = 0; i < cartasTablero.size(); i++) {
-		manos[jugadorGanador].agregarCarta(cartasTablero[i]);
-	}
-
-	cartasTablero.clear();  // Vaciar el tablero
+void Tablero::vaciar(int &indiceGanador,vector <Mano>& manos ) {
+       
+	manos[indiceGanador].puntaje += cartasTablero.size();
+	cartasTablero.clear();  
 }
-
-
-
 
 #endif
