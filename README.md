@@ -7,6 +7,8 @@
 
 
 ## instrucciones:
+Antes de jugar, en el archivo cliente.cpp se debe cambiar la dirección IP por la del servidor
+
 El programa empieza elgiendo la cantidad de jugadores.
 
 cada jugador debe tirar un carta de la mano que se muestra y pasar al siguiente jugador.
