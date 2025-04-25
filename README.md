@@ -2,7 +2,8 @@
 
 ## Diagrama UML:
 
-![FinaUML](https://github.com/user-attachments/assets/d627df47-5adb-41d5-9d39-be17e538589c)
+![Diagrama sin título (1)](https://github.com/user-attachments/assets/ca2cbc10-cce3-44bb-912c-84a96be1d7c4)
+
 
 
 ## instrucciones:
